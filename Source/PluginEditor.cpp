@@ -11,11 +11,19 @@
 
 //==============================================================================
 MicrotunerAudioProcessorEditor::MicrotunerAudioProcessorEditor (MicrotunerAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+:   AudioProcessorEditor (&p),
+    audioProcessor (p),
+    menuPanel(&p),
+    mainPanel(&p),
+    notePanel(&p),
+    blendPanel(&p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize(960, 342);
+    setResizable(false, false);
+    
+    for (auto p : panels) {
+        addAndMakeVisible(p);
+    }
 }
 
 MicrotunerAudioProcessorEditor::~MicrotunerAudioProcessorEditor()
@@ -30,6 +38,17 @@ void MicrotunerAudioProcessorEditor::paint (juce::Graphics& g)
 
 void MicrotunerAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    (showBlendPanel) ? setSize(960 + 372, 342) : setSize (960, 342);
+    
+    menuPanel.setBounds(0, 0, 126, 342);
+    mainPanel.setBounds(menuPanel.getRight(), 0, 702, 342);
+    notePanel.setBounds(mainPanel.getRight(), 0, 132, 342);
+    blendPanel.setBounds(notePanel.getRight(), 0, 372, 342);
+}
+
+//==============================================================================
+void MicrotunerAudioProcessorEditor::setShowBlendPanel(bool shouldShow)
+{
+    showBlendPanel = shouldShow;
+    resized();
 }

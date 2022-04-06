@@ -12,6 +12,11 @@
 
 #include "PanelBase.h"
 
+#include "ABPanel.h"
+#include "ScaleFilePanel.h"
+#include "GeneratorPanel.h"
+#include "ScaleDisplayPanel.h"
+
 //==============================================================================
 class MainPanel
 :   public PanelBase
@@ -25,6 +30,18 @@ public:
     void resized() override;
     
 private:
+    //==============================================================================
+    ABPanel abPanel;
+    ScaleFilePanel scaleFilePanel;
+    GeneratorPanel generatorPanel;
+    ScaleDisplayPanel scaleDisplayPanel;
+    
+    std::vector<PanelBase *> panels = {
+        &abPanel,
+        &scaleFilePanel,
+        &generatorPanel,
+        &scaleDisplayPanel
+    };
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainPanel)
