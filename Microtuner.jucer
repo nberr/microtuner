@@ -4,6 +4,53 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="kaClBG" name="Microtuner">
     <GROUP id="{C76F3F80-9A3E-2CA2-F85B-62AA129799A7}" name="Source">
+      <GROUP id="{27509A60-186F-0836-FBF7-7E39028FF258}" name="UI">
+        <GROUP id="{CF6174F7-658A-C5CE-81CC-781926B19F4A}" name="Panels">
+          <GROUP id="{57A1C9D9-F840-EC79-E842-74E7F98AC001}" name="Menu">
+            <FILE id="rhnEdJ" name="MenuPanel.cpp" compile="1" resource="0" file="Source/MenuPanel.cpp"/>
+            <FILE id="A7er2G" name="MenuPanel.h" compile="0" resource="0" file="Source/MenuPanel.h"/>
+          </GROUP>
+          <GROUP id="{78E791BB-6153-ABCC-18EA-7FDEBEC1FD20}" name="Main">
+            <GROUP id="{F1C02D64-1D0F-893E-1A75-D99C22587DCF}" name="AB">
+              <FILE id="Pd8s2a" name="ABPanel.cpp" compile="1" resource="0" file="Source/ABPanel.cpp"/>
+              <FILE id="FVe1lz" name="ABPanel.h" compile="0" resource="0" file="Source/ABPanel.h"/>
+            </GROUP>
+            <GROUP id="{FC387BB9-FD37-AFC3-6A9E-4E350517356A}" name="ScaleFile">
+              <FILE id="wonQ5G" name="ScaleFilePanel.cpp" compile="1" resource="0"
+                    file="Source/ScaleFilePanel.cpp"/>
+              <FILE id="kYGoSf" name="ScaleFilePanel.h" compile="0" resource="0"
+                    file="Source/ScaleFilePanel.h"/>
+            </GROUP>
+            <GROUP id="{2FC18746-44B0-8024-518A-8A90EDC3C91B}" name="Generator">
+              <FILE id="JP9beH" name="GeneratorPanel.cpp" compile="1" resource="0"
+                    file="Source/GeneratorPanel.cpp"/>
+              <FILE id="dhCi3O" name="GeneratorPanel.h" compile="0" resource="0"
+                    file="Source/GeneratorPanel.h"/>
+            </GROUP>
+            <GROUP id="{2F20C725-BABB-C43D-94A3-5AB3E8E1BA25}" name="ScaleDisplay">
+              <FILE id="oyNfXF" name="ScaleDisplayPanel.cpp" compile="1" resource="0"
+                    file="Source/ScaleDisplayPanel.cpp"/>
+              <FILE id="DdHRlK" name="ScaleDisplayPanel.h" compile="0" resource="0"
+                    file="Source/ScaleDisplayPanel.h"/>
+            </GROUP>
+            <FILE id="rfBSZr" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
+            <FILE id="vpt02l" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
+          </GROUP>
+          <GROUP id="{05D2D420-3CA6-6AE3-6CC3-772AD23873C9}" name="Note">
+            <FILE id="y5JfZV" name="NotePanel.cpp" compile="1" resource="0" file="Source/NotePanel.cpp"/>
+            <FILE id="sImJJi" name="NotePanel.h" compile="0" resource="0" file="Source/NotePanel.h"/>
+          </GROUP>
+          <GROUP id="{6119D374-CC29-FA26-22EB-BAE782F19151}" name="Blend">
+            <FILE id="xwiprQ" name="BlendPanel.cpp" compile="1" resource="0" file="Source/BlendPanel.cpp"/>
+            <FILE id="VDWnIc" name="BlendPanel.h" compile="0" resource="0" file="Source/BlendPanel.h"/>
+          </GROUP>
+          <FILE id="h07jUM" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
+          <FILE id="xswGYt" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+        </GROUP>
+        <FILE id="YKc0Y7" name="AbletonLookAndFeel.h" compile="0" resource="0"
+              file="Source/AbletonLookAndFeel.h"/>
+        <FILE id="atedZa" name="MicrotunerGUI.h" compile="0" resource="0" file="Source/MicrotunerGUI.h"/>
+      </GROUP>
       <FILE id="LY1ggH" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="kkHRr7" name="PluginProcessor.h" compile="0" resource="0"
