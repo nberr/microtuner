@@ -27,9 +27,9 @@ PanelBase::~PanelBase()
 //==============================================================================
 void PanelBase::paint(juce::Graphics& g)
 {
-    g.setColour(juce::Colours::white);
+    g.setColour(juce::Colour(25, 25, 25));
     g.fillAll();
         
-    g.setColour(juce::Colours::black);
+    g.setColour(juce::Colour(143, 143, 143));
     g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 2, 2);
 }

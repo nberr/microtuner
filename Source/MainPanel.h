@@ -29,18 +29,30 @@ public:
     //==============================================================================
     void resized() override;
     
+    //==============================================================================
+    void setAPanelShown(bool shouldShow);
+    
 private:
     //==============================================================================
     ABPanel abPanel;
-    ScaleFilePanel scaleFilePanel;
-    GeneratorPanel generatorPanel;
-    ScaleDisplayPanel scaleDisplayPanel;
+    bool aPanelShown = true;
+    
+    ScaleFilePanel aScaleFilePanel;
+    GeneratorPanel aGeneratorPanel;
+    ScaleDisplayPanel aScaleDisplayPanel;
+    
+    ScaleFilePanel bScaleFilePanel;
+    GeneratorPanel bGeneratorPanel;
+    ScaleDisplayPanel bScaleDisplayPanel;
     
     std::vector<PanelBase *> panels = {
         &abPanel,
-        &scaleFilePanel,
-        &generatorPanel,
-        &scaleDisplayPanel
+        &aScaleFilePanel,
+        &aGeneratorPanel,
+        &aScaleDisplayPanel,
+        &bScaleFilePanel,
+        &bGeneratorPanel,
+        &bScaleDisplayPanel
     };
     
     //==============================================================================

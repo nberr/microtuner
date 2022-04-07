@@ -18,13 +18,16 @@ class GeneratorPanel
 {
 public:
     //==============================================================================
-    GeneratorPanel(MicrotunerAudioProcessor* processor);
+    GeneratorPanel(MicrotunerAudioProcessor* processor, bool isAPanel);
     ~GeneratorPanel();
     
     //==============================================================================
+    void paint(juce::Graphics& g) override;
     void resized() override;
     
 private:
+    //==============================================================================
+    bool isAPanel;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GeneratorPanel)

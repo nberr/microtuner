@@ -14,9 +14,12 @@
 MainPanel::MainPanel(MicrotunerAudioProcessor* processor)
 :   PanelBase(processor),
     abPanel(processor),
-    scaleFilePanel(processor),
-    generatorPanel(processor),
-    scaleDisplayPanel(processor)
+    aScaleFilePanel(processor),
+    aGeneratorPanel(processor, true),
+    aScaleDisplayPanel(processor),
+    bScaleFilePanel(processor),
+    bGeneratorPanel(processor, false),
+    bScaleDisplayPanel(processor)
 {
     setName("MainPanel");
     setComponentID("MainPanelID");
@@ -35,7 +38,42 @@ MainPanel::~MainPanel()
 void MainPanel::resized()
 {
     abPanel.setBounds(0, 0, 46, 342);
-    scaleFilePanel.setBounds(abPanel.getRight(), 0, 342, 168);
-    generatorPanel.setBounds(abPanel.getRight(), scaleFilePanel.getBottom(), 342, 174);
-    scaleDisplayPanel.setBounds(scaleFilePanel.getRight(), 0, 314, 342);
+    
+    if (aPanelShown) {
+        
+        aScaleFilePanel.setVisible(true);
+        aGeneratorPanel.setVisible(true);
+        aScaleDisplayPanel.setVisible(true);
+        
+        bScaleFilePanel.setVisible(false);
+        bGeneratorPanel.setVisible(false);
+        bScaleDisplayPanel.setVisible(false);
+        
+    }
+    else {
+        
+        aScaleFilePanel.setVisible(false);
+        aGeneratorPanel.setVisible(false);
+        aScaleDisplayPanel.setVisible(false);
+        
+        bScaleFilePanel.setVisible(true);
+        bGeneratorPanel.setVisible(true);
+        bScaleDisplayPanel.setVisible(true);
+        
+    }
+    
+    aScaleFilePanel.setBounds(abPanel.getRight(), 0, 342, 168);
+    aGeneratorPanel.setBounds(abPanel.getRight(), aScaleFilePanel.getBottom(), 342, 174);
+    aScaleDisplayPanel.setBounds(aScaleFilePanel.getRight(), 0, 314, 342);
+    
+    bScaleFilePanel.setBounds(abPanel.getRight(), 0, 342, 168);
+    bGeneratorPanel.setBounds(abPanel.getRight(), aScaleFilePanel.getBottom(), 342, 174);
+    bScaleDisplayPanel.setBounds(aScaleFilePanel.getRight(), 0, 314, 342);
+}
+
+//==============================================================================
+void MainPanel::setAPanelShown(bool shouldShow)
+{
+    aPanelShown = shouldShow;
+    resized();
 }
