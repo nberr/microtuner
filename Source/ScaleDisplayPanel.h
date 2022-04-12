@@ -22,6 +22,7 @@ public:
     ~ScaleDisplayPanel();
     
     //==============================================================================
+    void paint(juce::Graphics& g) override;
     void resized() override;
     
 private:

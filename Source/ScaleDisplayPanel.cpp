@@ -24,6 +24,12 @@ ScaleDisplayPanel::~ScaleDisplayPanel()
 }
 
 //==============================================================================
+void ScaleDisplayPanel::paint(juce::Graphics& g)
+{
+    g.setColour(juce::Colour(25, 25, 25));
+    g.fillRect(0, 0, getWidth(), getHeight()-4);
+}
+
 void ScaleDisplayPanel::resized()
 {
     

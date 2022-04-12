@@ -23,6 +23,7 @@ public:
     ~NotePanel();
     
     //==============================================================================
+    void paint(juce::Graphics& g) override;
     void resized() override;
     
     //==============================================================================
@@ -30,6 +31,13 @@ public:
     
 private:
     //==============================================================================
+    juce::TextButton followButton {"Follow"};
+    
+    juce::Slider positionSlider;
+    juce::Slider centSlider;
+    
+    juce::TextButton revertButton {"Revert"};
+    
     juce::TextButton blendButton {"Off"};
     
     //==============================================================================

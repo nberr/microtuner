@@ -69,6 +69,7 @@ void GeneratorPanel::paint(juce::Graphics& g)
     if (isAPanel) {
         g.fillRoundedRectangle(0, 0, getWidth(), getHeight()-4, 4);
         g.fillRect(0, 0, getWidth(), 4);
+        g.fillRect(getWidth()-4, 0, 4, getHeight());
     }
     else {
         g.fillRect(0, 0, getWidth(), getHeight()-4);

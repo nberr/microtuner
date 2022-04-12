@@ -30,6 +30,15 @@ NotePanel::~NotePanel()
 }
 
 //==============================================================================
+void NotePanel::paint(juce::Graphics& g)
+{
+    g.setColour(juce::Colour(143, 143, 143));
+    g.fillAll();
+    
+    g.setColour(juce::Colour(25, 25, 25));
+    g.fillRect(0, 0, getWidth(), getHeight()-4);
+}
+
 void NotePanel::resized()
 {
     blendButton.setBounds(16, 300, 100, 26);
