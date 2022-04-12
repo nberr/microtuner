@@ -22,9 +22,18 @@ public:
     ~ScaleFilePanel();
     
     //==============================================================================
+    void paint(juce::Graphics& g) override;
     void resized() override;
     
 private:
+    //==============================================================================
+    juce::ComboBox folderSelector;
+    juce::ComboBox fileSelector;
+    
+    juce::TextButton next {">"};
+    juce::TextButton prev {"<"};
+    
+    juce::TextButton info;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleFilePanel)

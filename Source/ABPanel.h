@@ -23,6 +23,7 @@ public:
     ~ABPanel();
     
     //==============================================================================
+    void paint(juce::Graphics& g) override;
     void resized() override;
     
     //==============================================================================
@@ -30,6 +31,8 @@ public:
     
 private:
     //==============================================================================
+    ABLookAndFeel ablaf;
+    
     juce::TextButton aButton {"A"};
     juce::TextButton bButton {"B"};
     

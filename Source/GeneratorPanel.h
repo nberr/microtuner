@@ -14,7 +14,9 @@
 
 //==============================================================================
 class GeneratorPanel
-:   public PanelBase
+:   public PanelBase,
+    public juce::Button::Listener,
+    public juce::Slider::Listener
 {
 public:
     //==============================================================================
@@ -25,9 +27,33 @@ public:
     void paint(juce::Graphics& g) override;
     void resized() override;
     
+    //==============================================================================
+    void buttonClicked(juce::Button* b) override;
+    
+    //==============================================================================
+    void sliderValueChanged(juce::Slider* s) override;
+    
 private:
     //==============================================================================
+    GeneratorLookAndFeel glaf;
+    
     bool isAPanel;
+    
+    juce::TextButton useGeneratorButton;
+    
+    juce::Slider pitchSlider;
+    juce::Slider octaveNumeratorSlider;
+    juce::Slider octaveDenominatorSlider;
+    juce::Slider randSlider;
+    
+    std::vector<juce::Slider *> sliders = {
+        &pitchSlider,
+        &octaveNumeratorSlider,
+        &octaveDenominatorSlider,
+        &randSlider
+    };
+    
+    juce::TextButton generateButton {"Generate"};
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GeneratorPanel)

@@ -23,6 +23,12 @@ MenuPanel::~MenuPanel()
 }
 
 //==============================================================================
+void MenuPanel::paint(juce::Graphics& g)
+{
+    g.setColour(juce::Colour(143, 143, 143));
+    g.fillAll();
+}
+
 void MenuPanel::resized()
 {
     

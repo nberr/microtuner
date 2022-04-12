@@ -13,6 +13,7 @@
 #include <JuceHeader.h>
 
 #include "PluginProcessor.h"
+#include "AbletonLookAndFeel.h"
 
 class PanelBase
 :   public juce::Component

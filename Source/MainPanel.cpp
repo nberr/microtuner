@@ -35,6 +35,12 @@ MainPanel::~MainPanel()
 }
 
 //==============================================================================
+void MainPanel::paint(juce::Graphics& g)
+{
+    g.setColour(juce::Colour(143, 143, 143));
+    g.fillAll();
+}
+
 void MainPanel::resized()
 {
     abPanel.setBounds(0, 0, 46, 342);
