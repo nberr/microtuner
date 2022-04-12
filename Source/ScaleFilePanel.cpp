@@ -16,6 +16,7 @@ ScaleFilePanel::ScaleFilePanel(MicrotunerAudioProcessor* processor)
 {
     setName("ScaleFilePanel");
     setComponentID("ScaleFilePanelID");
+    //setLookAndFeel(&sflaf);
     
     addAndMakeVisible(folderSelector);
     addAndMakeVisible(fileSelector);
@@ -28,7 +29,7 @@ ScaleFilePanel::ScaleFilePanel(MicrotunerAudioProcessor* processor)
 
 ScaleFilePanel::~ScaleFilePanel()
 {
-    
+    setLookAndFeel(nullptr);
 }
 
 //==============================================================================

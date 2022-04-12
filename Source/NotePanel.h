@@ -31,6 +31,8 @@ public:
     
 private:
     //==============================================================================
+    NoteLookAndFeel nlaf;
+    
     juce::TextButton followButton {"Follow"};
     
     juce::Slider positionSlider;

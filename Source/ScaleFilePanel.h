@@ -27,6 +27,8 @@ public:
     
 private:
     //==============================================================================
+    ScaleFileLookAndFeel sflaf;
+    
     juce::ComboBox folderSelector;
     juce::ComboBox fileSelector;
     

@@ -27,7 +27,11 @@ ScaleDisplayPanel::~ScaleDisplayPanel()
 void ScaleDisplayPanel::paint(juce::Graphics& g)
 {
     g.setColour(juce::Colour(25, 25, 25));
-    g.fillRect(0, 0, getWidth(), getHeight()-4);
+    g.fillRoundedRectangle(0, 0, getWidth(), getHeight()-4, 6);
+    g.fillRect(0, 0, 5, 5);
+    g.fillRect(getWidth()-5, 0, 5, 5);
+    g.fillRect(0, getHeight()-9, 5, 5);
+    
 }
 
 void ScaleDisplayPanel::resized()

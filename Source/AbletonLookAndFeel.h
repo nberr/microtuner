@@ -178,6 +178,41 @@ public:
 
         return l;
     }
-
     
+};
+
+class ScaleFileLookAndFeel
+:   public juce::LookAndFeel_V4
+{
+public:
+    ScaleFileLookAndFeel() {
+
+    }
+    
+    ~ScaleFileLookAndFeel() {
+        
+    }
+    
+    void drawButtonBackground(juce::Graphics& g, juce::Button& b, const juce::Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) {
+        
+        
+    }
+};
+
+class NoteLookAndFeel
+:   public juce::LookAndFeel_V4
+{
+public:
+    NoteLookAndFeel() {
+
+    }
+    
+    ~NoteLookAndFeel() {
+        
+    }
+    
+    void drawButtonBackground(juce::Graphics& g, juce::Button& b, const juce::Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) {
+        
+        
+    }
 };
