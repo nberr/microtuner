@@ -96,7 +96,7 @@ public:
             if (b.isEnabled()) {
                 g.setColour(juce::Colour(245, 180, 62));
                 if (shouldDrawButtonAsDown) {
-                    g.fillRect(0, 0, b.getWidth(), b.getHeight());
+                    g.fillRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 20);
                 }
                 else {
                     g.drawRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 20, 2);
@@ -134,13 +134,14 @@ public:
         if (b.getName() == "Generate Button") {
             
             if (b.isEnabled()) {
+                
                 if (shouldDrawButtonAsDown) {
-                    
+                    g.setColour(juce::Colour(25, 25, 25));
                 }
                 else {
-                    
-                    
+                    g.setColour(juce::Colour(245, 180, 62));
                 }
+                
             }
             else {
                 g.setColour(juce::Colour(127, 127, 127));
@@ -151,7 +152,32 @@ public:
                     g.drawRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 20, 2);
                 }
             }
+            
+            g.drawText("Generate", 0, 0, b.getWidth(), b.getHeight(), juce::Justification::centred);
         }
     }
+    
+    juce::CaretComponent* createCaretComponent (juce::Component* keyFocusOwner)
+    {
+        auto caret = new juce::CaretComponent (keyFocusOwner);
+
+        caret->setColour (juce::CaretComponent::caretColourId, keyFocusOwner->findColour (juce::Label::textColourId));
+
+        return caret;
+    }
+
+    juce::Label* createSliderTextBox (juce::Slider& slider)
+    {
+        auto* l = new juce::Label();
+
+        l->setJustificationType (juce::Justification::centred);
+        l->setColour (juce::Label::textColourId, slider.findColour (juce::Slider::textBoxTextColourId));
+        l->setColour (juce::Label::textWhenEditingColourId, slider.findColour (juce::Slider::textBoxTextColourId));
+        l->setColour (juce::Label::outlineWhenEditingColourId, juce::Colours::transparentWhite);
+        l->setFont (18);
+
+        return l;
+    }
+
     
 };

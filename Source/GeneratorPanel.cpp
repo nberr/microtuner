@@ -26,7 +26,12 @@ GeneratorPanel::GeneratorPanel(MicrotunerAudioProcessor* processor, bool isAPane
     addAndMakeVisible(useGeneratorButton);
     
     for (auto s : sliders) {
+        s->setColour(juce::Slider::textBoxTextColourId, juce::Colour(245, 180, 62));
+        s->setColour(juce::Slider::textBoxOutlineColourId, juce::Colour(245, 180, 62));
+        s->setColour(juce::Slider::trackColourId, juce::Colours::transparentWhite);
+        
         s->setSliderStyle(juce::Slider::SliderStyle::LinearBarVertical);
+        s->setEnabled(false);
         s->addListener(this);
         addAndMakeVisible(s);
     }
@@ -42,6 +47,8 @@ GeneratorPanel::GeneratorPanel(MicrotunerAudioProcessor* processor, bool isAPane
     
     randSlider.setRange(0, 100, 0.8f);
     randSlider.setValue(0);
+    randSlider.setTextValueSuffix(" %");
+    randSlider.setNumDecimalPlacesToDisplay(2);
     
     generateButton.setName("Generate Button");
     generateButton.setEnabled(false);
@@ -102,12 +109,29 @@ void GeneratorPanel::buttonClicked(juce::Button* b)
 {
     if (b == &useGeneratorButton) {
         useGeneratorButton.setToggleState(!useGeneratorButton.getToggleState(), juce::NotificationType::dontSendNotification);
+        
+        pitchSlider.setEnabled(useGeneratorButton.getToggleState());
+        octaveNumeratorSlider.setEnabled(useGeneratorButton.getToggleState());
+        octaveDenominatorSlider.setEnabled(useGeneratorButton.getToggleState());
+        randSlider.setEnabled(useGeneratorButton.getToggleState());
+        
         generateButton.setEnabled(useGeneratorButton.getToggleState());
+        
     }
 }
 
 //==============================================================================
 void GeneratorPanel::sliderValueChanged(juce::Slider* s)
 {
-    
+    if (s == &randSlider) {
+        if (randSlider.getValue() == 100) {
+            randSlider.setNumDecimalPlacesToDisplay(0);
+        }
+        else if (randSlider.getValue() >= 10) {
+            randSlider.setNumDecimalPlacesToDisplay(1);
+        }
+        else {
+            randSlider.setNumDecimalPlacesToDisplay(2);
+        }
+    }
 }
