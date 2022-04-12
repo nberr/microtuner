@@ -213,6 +213,87 @@ public:
     
     void drawButtonBackground(juce::Graphics& g, juce::Button& b, const juce::Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) {
         
+        if (b.getName() == "Blend Button") {
+            
+            g.setColour(juce::Colour(40, 40, 40));
+            g.drawRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 0, 2);
+            
+            g.setColour(juce::Colour(245, 180, 62));
+            if (b.getToggleState()) {
+                g.fillRect(2, 2, b.getWidth()-4, b.getHeight()-4);
+            }
+            else {
+                g.drawRoundedRectangle(2, 2, b.getWidth()-4, b.getHeight()-4, 0, 2);
+            }
+            
+        }
+        else if (b.getName() == "Follow Button") {
+            
+            g.setColour(juce::Colour(40, 40, 40));
+            g.drawRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 0, 2);
+            
+            g.setColour(juce::Colour(245, 180, 62));
+            if (b.getToggleState()) {
+                g.fillRect(2, 2, b.getWidth()-4, b.getHeight()-4);
+            }
+            else {
+                g.drawRoundedRectangle(2, 2, b.getWidth()-4, b.getHeight()-4, 0, 2);
+            }
+            
+        }
+        else if (b.getName() == "Revert Button") {
+            
+            
+            
+            g.setColour(juce::Colour(245, 180, 62));
+            if (shouldDrawButtonAsDown) {
+                g.fillRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 20);
+            }
+            else {
+                g.drawRoundedRectangle(0, 0, b.getWidth(), b.getHeight(), 20, 2);
+            }
+            
+        }
+        
+    }
+    
+    void drawButtonText(juce::Graphics& g, juce::TextButton& b, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) {
+        
+        if (b.getName() == "Blend Button") {
+            
+            if (b.getToggleState()) {
+                g.setColour(juce::Colour(25, 25, 25));
+                g.drawText("On", 40, 8, 23, 16, juce::Justification::centred);
+            }
+            else {
+                g.setColour(juce::Colour(245, 180, 62));
+                g.drawText("Off", 35, 8, 29, 16, juce::Justification::centred);
+            }
+        }
+        else if (b.getName() == "Follow Button") {
+            
+            if (b.getToggleState()) {
+                g.setColour(juce::Colour(25, 25, 25));
+            }
+            else {
+                g.setColour(juce::Colour(245, 180, 62));
+            }
+            
+            g.drawText("Follow", 27, 6, 52, 16, juce::Justification::centred);
+            
+        }
+        else if (b.getName() == "Revert Button") {
+            
+            if (shouldDrawButtonAsDown) {
+                g.setColour(juce::Colour(25, 25, 25));
+            }
+            else {
+                g.setColour(juce::Colour(245, 180, 62));
+            }
+            
+            g.drawText("Revert", 23, 6, 57, 16, juce::Justification::centred);
+            
+        }
         
     }
 };

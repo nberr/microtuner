@@ -20,13 +20,14 @@ NotePanel::NotePanel(MicrotunerAudioProcessor* processor)
     setComponentID("NotePanelID");
     setLookAndFeel(&nlaf);
     
+    followButton.setName("Follow Button");
     followButton.setToggleable(true);
     followButton.setToggleState(false, juce::NotificationType::dontSendNotification);
     followButton.addListener(this);
     addAndMakeVisible(followButton);
     
     // TODO: set the range based on how many notes in the scale
-    positionSlider.setRange(0, 12, 1);
+    positionSlider.setRange(1, 12, 1);
     positionSlider.setColour(juce::Slider::textBoxTextColourId, juce::Colour(245, 180, 62));
     positionSlider.setColour(juce::Slider::textBoxOutlineColourId, juce::Colour(245, 180, 62));
     positionSlider.setColour(juce::Slider::trackColourId, juce::Colours::transparentWhite);
@@ -40,9 +41,11 @@ NotePanel::NotePanel(MicrotunerAudioProcessor* processor)
     centSlider.setSliderStyle(juce::Slider::SliderStyle::LinearBarVertical);
     addAndMakeVisible(centSlider);
     
+    revertButton.setName("Revert Button");
     revertButton.addListener(this);
     addAndMakeVisible(revertButton);
     
+    blendButton.setName("Blend Button");
     blendButton.setToggleable(true);
     blendButton.addListener(this);
     addAndMakeVisible(blendButton);
@@ -93,7 +96,7 @@ void NotePanel::resized()
     
     revertButton.setBounds(14, 224, 102, 26);
     
-    blendButton.setBounds(16, 300, 100, 26);
+    blendButton.setBounds(14, 298, 104, 30);
 }
 
 //==============================================================================
@@ -107,5 +110,8 @@ void NotePanel::buttonClicked(juce::Button* b)
         auto editor = (MicrotunerAudioProcessorEditor *)getParentComponent();
         editor->setShowBlendPanel(blendButton.getToggleState());
         
+    }
+    else if (b == &followButton) {
+        followButton.setToggleState(!followButton.getToggleState(), juce::dontSendNotification);
     }
 }
