@@ -25,6 +25,14 @@ public:
     void resized() override;
     
 private:
+    //==============================================================================
+    juce::ComboBox modeComboBox;
+    
+    juce::TextButton MPEButton {"Off"};
+    
+    juce::Slider pitchSlider;
+    juce::Slider freqSlider;
+    juce::Slider transposeSlider;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MenuPanel)

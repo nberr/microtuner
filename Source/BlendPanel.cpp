@@ -16,6 +16,13 @@ BlendPanel::BlendPanel(MicrotunerAudioProcessor* processor)
 {
     setName("BlendPanel");
     setComponentID("BlendPanelID");
+    
+    blendSlider.setRange(0.0f, 1.0f, 0.01f);
+    blendSlider.setValue(1.0f);
+    blendSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    addAndMakeVisible(blendSlider);
+    
+    addAndMakeVisible(blendedScale);
 }
 
 BlendPanel::~BlendPanel()
@@ -31,10 +38,18 @@ void BlendPanel::paint(juce::Graphics& g)
     
     g.setColour(juce::Colour(25, 25, 25));
     g.fillRect(0, 0, getWidth(), getHeight()-4);
+    
+    g.setColour(juce::Colours::white);
+    g.drawText("Blend Output", 142, 15, 115, 19, juce::Justification::centred);
+    
+    g.setColour(juce::Colour(151, 150, 150));
+    g.drawText("A", 17, 18, 14, 14, juce::Justification::centred);
+    g.drawText("B", 17, 306, 10, 14, juce::Justification::centred);
 }
 
 
 void BlendPanel::resized()
 {
-    
+    blendSlider.setBounds(20, 43, 25, 263);
+    blendedScale.setBounds(82, 50, 238, 238);
 }

@@ -4,6 +4,11 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="kaClBG" name="Microtuner">
     <GROUP id="{C76F3F80-9A3E-2CA2-F85B-62AA129799A7}" name="Source">
+      <GROUP id="{A491E32D-A790-3517-1A68-B0FE20DB74BB}" name="ScaleDisplay">
+        <FILE id="N0UuJp" name="ScaleDisplay.cpp" compile="1" resource="0"
+              file="Source/ScaleDisplay.cpp"/>
+        <FILE id="RTdj17" name="ScaleDisplay.h" compile="0" resource="0" file="Source/ScaleDisplay.h"/>
+      </GROUP>
       <GROUP id="{27509A60-186F-0836-FBF7-7E39028FF258}" name="UI">
         <GROUP id="{CF6174F7-658A-C5CE-81CC-781926B19F4A}" name="Panels">
           <GROUP id="{57A1C9D9-F840-EC79-E842-74E7F98AC001}" name="Menu">

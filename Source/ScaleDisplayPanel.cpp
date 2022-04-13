@@ -16,6 +16,8 @@ ScaleDisplayPanel::ScaleDisplayPanel(MicrotunerAudioProcessor* processor)
 {
     setName("ScaleDisplayPanel");
     setComponentID("ScaleDisplayPanelID");
+    
+    addAndMakeVisible(scaleDisplay);
 }
 
 ScaleDisplayPanel::~ScaleDisplayPanel()
@@ -32,10 +34,13 @@ void ScaleDisplayPanel::paint(juce::Graphics& g)
     g.fillRect(getWidth()-5, 0, 5, 5);
     g.fillRect(0, getHeight()-9, 5, 5);
     
+    g.setColour(juce::Colours::white);
+    g.drawText("Scale", 147, 17, 49, 16, juce::Justification::centred);
+    
 }
 
 void ScaleDisplayPanel::resized()
 {
-    
+    scaleDisplay.setBounds(52, 49, 238, 238);
 }
 

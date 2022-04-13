@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    ScaleDisplayPanel.h
-    Created: 5 Apr 2022 10:48:11pm
+    ScaleDisplay.h
+    Created: 12 Apr 2022 5:53:36pm
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -10,26 +10,22 @@
 
 #pragma once
 
-#include "PanelBase.h"
+#include <JuceHeader.h>
 
-#include "ScaleDisplay.h"
-
-//==============================================================================
-class ScaleDisplayPanel
-:   public PanelBase
+class ScaleDisplay
+:   public juce::Component
 {
 public:
     //==============================================================================
-    ScaleDisplayPanel(MicrotunerAudioProcessor* processor);
-    ~ScaleDisplayPanel();
+    ScaleDisplay();
+    ~ScaleDisplay();
     
     //==============================================================================
     void paint(juce::Graphics& g) override;
     void resized() override;
     
 private:
-    ScaleDisplay scaleDisplay;
     
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleDisplayPanel)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleDisplay)
 };

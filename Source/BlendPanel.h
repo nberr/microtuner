@@ -12,6 +12,8 @@
 
 #include "PanelBase.h"
 
+#include "ScaleDisplay.h"
+
 //==============================================================================
 class BlendPanel
 :   public PanelBase
@@ -26,6 +28,8 @@ public:
     void resized() override;
     
 private:
+    ScaleDisplay blendedScale;
+    juce::Slider blendSlider;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BlendPanel)
