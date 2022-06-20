@@ -297,3 +297,59 @@ public:
         
     }
 };
+
+class BlendLookAndFeel
+:   public juce::LookAndFeel_V4
+{
+public:
+    BlendLookAndFeel()
+    {
+        
+    }
+    
+    ~BlendLookAndFeel()
+    {
+        
+    }
+    
+    void drawLinearSliderBackground(juce::Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle style, juce::Slider& s)
+    {
+        if (s.getName() == "Blend Slider") {
+            
+            g.setColour(juce::Colour(84, 83, 84));
+            g.fillRect(5, 12, 2, height);
+            
+        }
+    }
+    
+    void drawLinearSliderThumb(juce::Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle style, juce::Slider& s)
+    {
+        if (s.getName() == "Blend Slider") {
+            
+            g.setColour(juce::Colour(245, 180, 62));
+            
+            juce::Path knob;
+            
+            int offset_x = 5;
+            knob.startNewSubPath(offset_x, sliderPos);
+            knob.lineTo(offset_x + 12, sliderPos-6);
+            knob.lineTo(offset_x + 12, sliderPos+6);
+            knob.closeSubPath();
+            
+            g.fillPath(knob);
+            
+        }
+    }
+    
+    void drawLinearSlider(juce::Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle style, juce::Slider& s)
+    {
+        if (s.getName() == "Blend Slider") {
+            
+            drawLinearSliderBackground(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, s);
+            drawLinearSliderThumb(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, s);
+            
+        }
+    }
+    
+    
+};

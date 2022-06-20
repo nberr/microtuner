@@ -17,9 +17,11 @@ BlendPanel::BlendPanel(MicrotunerAudioProcessor* processor)
     setName("BlendPanel");
     setComponentID("BlendPanelID");
     
+    blendSlider.setName("Blend Slider");
     blendSlider.setRange(0.0f, 1.0f, 0.01f);
     blendSlider.setValue(1.0f);
     blendSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    blendSlider.setLookAndFeel(&blaf);
     addAndMakeVisible(blendSlider);
     
     addAndMakeVisible(blendedScale);
@@ -27,7 +29,7 @@ BlendPanel::BlendPanel(MicrotunerAudioProcessor* processor)
 
 BlendPanel::~BlendPanel()
 {
-    
+    blendSlider.setLookAndFeel(nullptr);
 }
 
 //==============================================================================

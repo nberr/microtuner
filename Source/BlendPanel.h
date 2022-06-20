@@ -13,6 +13,7 @@
 #include "PanelBase.h"
 
 #include "ScaleDisplay.h"
+#include "AbletonLookAndFeel.h"
 
 //==============================================================================
 class BlendPanel
@@ -30,6 +31,8 @@ public:
 private:
     ScaleDisplay blendedScale;
     juce::Slider blendSlider;
+    
+    BlendLookAndFeel blaf;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BlendPanel)
